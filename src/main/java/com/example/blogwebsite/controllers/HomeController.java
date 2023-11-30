@@ -47,7 +47,7 @@ public class HomeController {
                        @RequestParam(required = false) Set<Integer> tagIds,
                        @RequestParam(required = false) String searchTerm,
                        Model model) {
-        int pageSize = 5;
+        int pageSize = 6;
         Sort sort = Sort.by(Sort.Direction.fromString(sortOrder), sortField);
         PageRequest pageRequest = PageRequest.of(page != null ? page : 0, pageSize, sort);
         Page<Post> postPage;
