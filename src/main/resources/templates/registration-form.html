@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        center {
+            margin-top: 50px;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <a th:href="@{/}">Home</a>
+    <form method="POST" th:action="@{/saveRegisteredUser}">
+        <input name="name" placeholder="Name" type="text"/>
+        <br><br>
+        <input name="email" placeholder="Email" type="email"/>
+        <br><br>
+        <input name="password" placeholder="Password" type="password"/>
+        <br><br>
+        <input name="confirmPassword" placeholder="Confirm Password" type="password"/>
+        <br><br>
+        <input type="submit" value="Register"/>
+    </form>
+</center>
+</body>
+</html>

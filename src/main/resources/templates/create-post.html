@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CreatePost</title>
+</head>
+<body>
+<center>
+    <h1>New/Edit post</h1>
+    <form method="POST" th:action="@{/postcreated}" th:object="${post}">
+        <input name="title" placeholder="Title" th:field="*{title}" type="text"/> <br><br>
+        <div th:if="${role == 'author'}">
+            <input name="author" placeholder="Author" th:disabled="${role == 'author'}" th:value="${post.author}"
+                   type="text"/> <br><br>
+        </div>
+        <div th:if="${role != 'author'}">
+            <input name="author" placeholder="Author" th:field="*{author}" type="text"/> <br><br>
+        </div>
+        <input name="description" placeholder="Description" th:field="*{excerpt}" type="text"/> <br><br>
+        <input name="tag" placeholder="Tags" type="text"/> <br><br>
+        <textarea cols="100" name="story" placeholder="Tell your story..." rows="40" th:field="*{content}"></textarea>
+        <br><br>
+        <input type="submit" value="POST"/>
+    </form>
+</center>
+</body>
+</html>

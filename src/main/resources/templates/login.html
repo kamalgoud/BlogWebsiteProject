@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+        }
+
+        center {
+            margin-top: 100px;
+        }
+
+        h3 {
+            color: #000;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #ddd;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            color: #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h3>Login</h3>
+    <a th:href="@{/}">Home</a>
+    <form method="POST" th:action="@{/authenticateTheUser}">
+        <div style="color: #ff6347;" th:if="${param.error}">
+            Sorry, you entered invalid credentials.
+        </div>
+        <div style="color: #008000;" th:if="${param.logout}">
+            You are logged out.
+        </div>
+        <input name="username" placeholder="E-mail" type="text"/>
+        <input name="password" placeholder="Password" type="password"/>
+        <input type="submit" value="Login"/>
+    </form>
+</center>
+</body>
+</html>
